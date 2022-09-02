@@ -3,8 +3,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SceneKit/SceneKit.h>
+#import "GameBaseViewController.h"
 
-@interface GameViewController : UIViewController
+@interface GameViewController : GameBaseViewController
 
 @end

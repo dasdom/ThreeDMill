@@ -14,6 +14,11 @@
 		F240CC7D28BE83FE00323A7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F240CC7C28BE83FE00323A7E /* Assets.xcassets */; };
 		F240CC8028BE83FE00323A7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F240CC7E28BE83FE00323A7E /* LaunchScreen.storyboard */; };
 		F240CC8228BE83FE00323A7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8128BE83FE00323A7E /* main.m */; };
+		F240CC8A28BFBB1100323A7E /* GameNodeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8928BFBB1100323A7E /* GameNodeFactory.m */; };
+		F240CC8D28C1E31C00323A7E /* GameBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8C28C1E31C00323A7E /* GameBaseView.m */; };
+		F240CC9028C2051800323A7E /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8F28C2051800323A7E /* Board.m */; };
+		F240CC9428C2085D00323A7E /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9328C2085D00323A7E /* Sphere.m */; };
+		F240CC9828C23CA900323A7E /* GameBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9728C23CA900323A7E /* GameBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,16 @@
 		F240CC7C28BE83FE00323A7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F240CC7F28BE83FE00323A7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F240CC8128BE83FE00323A7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F240CC8828BFBB1100323A7E /* GameNodeFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameNodeFactory.h; sourceTree = "<group>"; };
+		F240CC8928BFBB1100323A7E /* GameNodeFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameNodeFactory.m; sourceTree = "<group>"; };
+		F240CC8B28C1E31C00323A7E /* GameBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameBaseView.h; sourceTree = "<group>"; };
+		F240CC8C28C1E31C00323A7E /* GameBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameBaseView.m; sourceTree = "<group>"; };
+		F240CC8E28C2051800323A7E /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		F240CC8F28C2051800323A7E /* Board.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
+		F240CC9228C2085D00323A7E /* Sphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		F240CC9328C2085D00323A7E /* Sphere.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
+		F240CC9628C23CA900323A7E /* GameBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameBaseViewController.h; sourceTree = "<group>"; };
+		F240CC9728C23CA900323A7E /* GameBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameBaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +61,9 @@
 				F240CC7028BE83FE00323A7E /* ThreeDMill */,
 				F240CC6F28BE83FE00323A7E /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		F240CC6F28BE83FE00323A7E /* Products */ = {
 			isa = PBXGroup;
@@ -64,12 +81,38 @@
 				F240CC7428BE83FE00323A7E /* art.scnassets */,
 				F240CC7628BE83FE00323A7E /* GameViewController.h */,
 				F240CC7728BE83FE00323A7E /* GameViewController.m */,
+				F240CC9628C23CA900323A7E /* GameBaseViewController.h */,
+				F240CC9728C23CA900323A7E /* GameBaseViewController.m */,
+				F240CC8B28C1E31C00323A7E /* GameBaseView.h */,
+				F240CC8C28C1E31C00323A7E /* GameBaseView.m */,
+				F240CC9528C2086A00323A7E /* Nodes */,
+				F240CC9128C207FE00323A7E /* Model */,
+				F240CC8828BFBB1100323A7E /* GameNodeFactory.h */,
+				F240CC8928BFBB1100323A7E /* GameNodeFactory.m */,
 				F240CC7928BE83FE00323A7E /* Main.storyboard */,
 				F240CC7C28BE83FE00323A7E /* Assets.xcassets */,
 				F240CC7E28BE83FE00323A7E /* LaunchScreen.storyboard */,
 				F240CC8128BE83FE00323A7E /* main.m */,
 			);
 			path = ThreeDMill;
+			sourceTree = "<group>";
+		};
+		F240CC9128C207FE00323A7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F240CC8E28C2051800323A7E /* Board.h */,
+				F240CC8F28C2051800323A7E /* Board.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F240CC9528C2086A00323A7E /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				F240CC9228C2085D00323A7E /* Sphere.h */,
+				F240CC9328C2085D00323A7E /* Sphere.m */,
+			);
+			path = Nodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +186,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F240CC9028C2051800323A7E /* Board.m in Sources */,
+				F240CC8A28BFBB1100323A7E /* GameNodeFactory.m in Sources */,
+				F240CC9428C2085D00323A7E /* Sphere.m in Sources */,
 				F240CC7828BE83FE00323A7E /* GameViewController.m in Sources */,
+				F240CC8D28C1E31C00323A7E /* GameBaseView.m in Sources */,
 				F240CC8228BE83FE00323A7E /* main.m in Sources */,
 				F240CC7328BE83FE00323A7E /* AppDelegate.m in Sources */,
+				F240CC9828C23CA900323A7E /* GameBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
