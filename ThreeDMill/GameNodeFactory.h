@@ -12,9 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (SCNLight *)ambientLight;
 + (SCNNode *)camera: (SCNLookAtConstraint *)constraint;
 + (SCNNode *)spotLight: (SCNLookAtConstraint *)constraint;
++ (SCNNode *)cameraRootNode:(SCNLookAtConstraint *)constraint;
 + (SCNNode *)base;
-+ (NSArray<NSArray<SCNNode *> *> *)poles:(NSInteger)columns;
++ (NSArray<NSArray<SCNNode *> *> *)poles:(NSInteger)columns addToNode:(SCNNode *)node;
 + (SCNNode *)text: (NSString *)string;
++ (SCNLookAtConstraint *)lookAtConstraint:(SCNNode *)node;
 @end
 
 NS_ASSUME_NONNULL_END

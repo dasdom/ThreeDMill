@@ -3,18 +3,14 @@
 //
 
 #import <SceneKit/SceneKit.h>
-
-typedef NS_ENUM(NSInteger, DDHSphereColor) {
-    DDHSphereColorWhite,
-    DDHSphereColorRed
-};
+#import "Sphere.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Sphere : SCNNode
+@interface SphereNode : SCNNode
 @property DDHSphereColor color;
 @property BOOL moving;
-+ (instancetype)standardSphere:(DDHSphereColor)color;
++ (instancetype)sphereWithColor:(DDHSphereColor)color;
 @end
 
 NS_ASSUME_NONNULL_END

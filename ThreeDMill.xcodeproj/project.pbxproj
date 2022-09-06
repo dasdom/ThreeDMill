@@ -7,28 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F212391D28C685C0006754E3 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = F212391C28C685C0006754E3 /* Position.m */; };
+		F212392028C68705006754E3 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = F212391F28C68705006754E3 /* Move.m */; };
+		F212392328C7A876006754E3 /* ActionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F212392228C7A876006754E3 /* ActionFactory.m */; };
 		F240CC7328BE83FE00323A7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC7228BE83FE00323A7E /* AppDelegate.m */; };
 		F240CC7528BE83FE00323A7E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = F240CC7428BE83FE00323A7E /* art.scnassets */; };
 		F240CC7828BE83FE00323A7E /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC7728BE83FE00323A7E /* GameViewController.m */; };
-		F240CC7B28BE83FE00323A7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F240CC7928BE83FE00323A7E /* Main.storyboard */; };
 		F240CC7D28BE83FE00323A7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F240CC7C28BE83FE00323A7E /* Assets.xcassets */; };
 		F240CC8028BE83FE00323A7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F240CC7E28BE83FE00323A7E /* LaunchScreen.storyboard */; };
 		F240CC8228BE83FE00323A7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8128BE83FE00323A7E /* main.m */; };
 		F240CC8A28BFBB1100323A7E /* GameNodeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8928BFBB1100323A7E /* GameNodeFactory.m */; };
 		F240CC8D28C1E31C00323A7E /* GameBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8C28C1E31C00323A7E /* GameBaseView.m */; };
 		F240CC9028C2051800323A7E /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8F28C2051800323A7E /* Board.m */; };
-		F240CC9428C2085D00323A7E /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9328C2085D00323A7E /* Sphere.m */; };
+		F240CC9428C2085D00323A7E /* SphereNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9328C2085D00323A7E /* SphereNode.m */; };
 		F240CC9828C23CA900323A7E /* GameBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9728C23CA900323A7E /* GameBaseViewController.m */; };
+		F240CC9B28C359BB00323A7E /* Pole.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9A28C359BB00323A7E /* Pole.m */; };
+		F240CC9F28C4858200323A7E /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9E28C4858200323A7E /* Sphere.m */; };
+		F240CCAF28C4935500323A7E /* BoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CCAE28C4935500323A7E /* BoardTests.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F240CCA828C4932D00323A7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F240CC6628BE83FD00323A7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F240CC6D28BE83FE00323A7E;
+			remoteInfo = ThreeDMill;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		F212391B28C685C0006754E3 /* Position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
+		F212391C28C685C0006754E3 /* Position.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
+		F212391E28C68705006754E3 /* Move.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
+		F212391F28C68705006754E3 /* Move.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
+		F212392128C7A876006754E3 /* ActionFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionFactory.h; sourceTree = "<group>"; };
+		F212392228C7A876006754E3 /* ActionFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionFactory.m; sourceTree = "<group>"; };
 		F240CC6E28BE83FE00323A7E /* ThreeDMill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeDMill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F240CC7128BE83FE00323A7E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F240CC7228BE83FE00323A7E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F240CC7428BE83FE00323A7E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		F240CC7628BE83FE00323A7E /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		F240CC7728BE83FE00323A7E /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		F240CC7A28BE83FE00323A7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F240CC7C28BE83FE00323A7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F240CC7F28BE83FE00323A7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F240CC8128BE83FE00323A7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,14 +58,27 @@
 		F240CC8C28C1E31C00323A7E /* GameBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameBaseView.m; sourceTree = "<group>"; };
 		F240CC8E28C2051800323A7E /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		F240CC8F28C2051800323A7E /* Board.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
-		F240CC9228C2085D00323A7E /* Sphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
-		F240CC9328C2085D00323A7E /* Sphere.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
+		F240CC9228C2085D00323A7E /* SphereNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereNode.h; sourceTree = "<group>"; };
+		F240CC9328C2085D00323A7E /* SphereNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereNode.m; sourceTree = "<group>"; };
 		F240CC9628C23CA900323A7E /* GameBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameBaseViewController.h; sourceTree = "<group>"; };
 		F240CC9728C23CA900323A7E /* GameBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameBaseViewController.m; sourceTree = "<group>"; };
+		F240CC9928C359BB00323A7E /* Pole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pole.h; sourceTree = "<group>"; };
+		F240CC9A28C359BB00323A7E /* Pole.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pole.m; sourceTree = "<group>"; };
+		F240CC9D28C4858200323A7E /* Sphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		F240CC9E28C4858200323A7E /* Sphere.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
+		F240CCA428C4932D00323A7E /* ThreeDMillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreeDMillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F240CCAE28C4935500323A7E /* BoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoardTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F240CC6B28BE83FE00323A7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F240CCA128C4932D00323A7E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				F240CC7028BE83FE00323A7E /* ThreeDMill */,
+				F240CCA528C4932D00323A7E /* ThreeDMillTests */,
 				F240CC6F28BE83FE00323A7E /* Products */,
 			);
 			indentWidth = 4;
@@ -69,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				F240CC6E28BE83FE00323A7E /* ThreeDMill.app */,
+				F240CCA428C4932D00323A7E /* ThreeDMillTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,7 +124,8 @@
 				F240CC9128C207FE00323A7E /* Model */,
 				F240CC8828BFBB1100323A7E /* GameNodeFactory.h */,
 				F240CC8928BFBB1100323A7E /* GameNodeFactory.m */,
-				F240CC7928BE83FE00323A7E /* Main.storyboard */,
+				F212392128C7A876006754E3 /* ActionFactory.h */,
+				F212392228C7A876006754E3 /* ActionFactory.m */,
 				F240CC7C28BE83FE00323A7E /* Assets.xcassets */,
 				F240CC7E28BE83FE00323A7E /* LaunchScreen.storyboard */,
 				F240CC8128BE83FE00323A7E /* main.m */,
@@ -102,6 +138,14 @@
 			children = (
 				F240CC8E28C2051800323A7E /* Board.h */,
 				F240CC8F28C2051800323A7E /* Board.m */,
+				F240CC9928C359BB00323A7E /* Pole.h */,
+				F240CC9A28C359BB00323A7E /* Pole.m */,
+				F240CC9D28C4858200323A7E /* Sphere.h */,
+				F240CC9E28C4858200323A7E /* Sphere.m */,
+				F212391B28C685C0006754E3 /* Position.h */,
+				F212391C28C685C0006754E3 /* Position.m */,
+				F212391E28C68705006754E3 /* Move.h */,
+				F212391F28C68705006754E3 /* Move.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,10 +153,26 @@
 		F240CC9528C2086A00323A7E /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				F240CC9228C2085D00323A7E /* Sphere.h */,
-				F240CC9328C2085D00323A7E /* Sphere.m */,
+				F240CC9228C2085D00323A7E /* SphereNode.h */,
+				F240CC9328C2085D00323A7E /* SphereNode.m */,
 			);
 			path = Nodes;
+			sourceTree = "<group>";
+		};
+		F240CCA528C4932D00323A7E /* ThreeDMillTests */ = {
+			isa = PBXGroup;
+			children = (
+				F240CCAD28C4933E00323A7E /* Model */,
+			);
+			path = ThreeDMillTests;
+			sourceTree = "<group>";
+		};
+		F240CCAD28C4933E00323A7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F240CCAE28C4935500323A7E /* BoardTests.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +195,24 @@
 			productReference = F240CC6E28BE83FE00323A7E /* ThreeDMill.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F240CCA328C4932D00323A7E /* ThreeDMillTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F240CCAA28C4932D00323A7E /* Build configuration list for PBXNativeTarget "ThreeDMillTests" */;
+			buildPhases = (
+				F240CCA028C4932D00323A7E /* Sources */,
+				F240CCA128C4932D00323A7E /* Frameworks */,
+				F240CCA228C4932D00323A7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F240CCA928C4932D00323A7E /* PBXTargetDependency */,
+			);
+			name = ThreeDMillTests;
+			productName = ThreeDMillTests;
+			productReference = F240CCA428C4932D00323A7E /* ThreeDMillTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -146,6 +224,10 @@
 				TargetAttributes = {
 					F240CC6D28BE83FE00323A7E = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					F240CCA328C4932D00323A7E = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = F240CC6D28BE83FE00323A7E;
 					};
 				};
 			};
@@ -163,6 +245,7 @@
 			projectRoot = "";
 			targets = (
 				F240CC6D28BE83FE00323A7E /* ThreeDMill */,
+				F240CCA328C4932D00323A7E /* ThreeDMillTests */,
 			);
 		};
 /* End PBXProject section */
@@ -175,7 +258,13 @@
 				F240CC7528BE83FE00323A7E /* art.scnassets in Resources */,
 				F240CC8028BE83FE00323A7E /* LaunchScreen.storyboard in Resources */,
 				F240CC7D28BE83FE00323A7E /* Assets.xcassets in Resources */,
-				F240CC7B28BE83FE00323A7E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F240CCA228C4932D00323A7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,26 +277,39 @@
 			files = (
 				F240CC9028C2051800323A7E /* Board.m in Sources */,
 				F240CC8A28BFBB1100323A7E /* GameNodeFactory.m in Sources */,
-				F240CC9428C2085D00323A7E /* Sphere.m in Sources */,
+				F240CC9428C2085D00323A7E /* SphereNode.m in Sources */,
+				F212392328C7A876006754E3 /* ActionFactory.m in Sources */,
 				F240CC7828BE83FE00323A7E /* GameViewController.m in Sources */,
+				F212392028C68705006754E3 /* Move.m in Sources */,
 				F240CC8D28C1E31C00323A7E /* GameBaseView.m in Sources */,
+				F240CC9F28C4858200323A7E /* Sphere.m in Sources */,
 				F240CC8228BE83FE00323A7E /* main.m in Sources */,
+				F240CC9B28C359BB00323A7E /* Pole.m in Sources */,
 				F240CC7328BE83FE00323A7E /* AppDelegate.m in Sources */,
+				F212391D28C685C0006754E3 /* Position.m in Sources */,
 				F240CC9828C23CA900323A7E /* GameBaseViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F240CCA028C4932D00323A7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F240CCAF28C4935500323A7E /* BoardTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		F240CC7928BE83FE00323A7E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F240CC7A28BE83FE00323A7E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		F240CCA928C4932D00323A7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F240CC6D28BE83FE00323A7E /* ThreeDMill */;
+			targetProxy = F240CCA828C4932D00323A7E /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		F240CC7E28BE83FE00323A7E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -340,7 +442,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -367,7 +468,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -380,6 +480,40 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F240CCAB28C4932D00323A7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q6PD97MRX4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.dasdom.ThreeDMillTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThreeDMill.app/ThreeDMill";
+			};
+			name = Debug;
+		};
+		F240CCAC28C4932D00323A7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q6PD97MRX4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.dasdom.ThreeDMillTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThreeDMill.app/ThreeDMill";
 			};
 			name = Release;
 		};
@@ -400,6 +534,15 @@
 			buildConfigurations = (
 				F240CC8628BE83FE00323A7E /* Debug */,
 				F240CC8728BE83FE00323A7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F240CCAA28C4932D00323A7E /* Build configuration list for PBXNativeTarget "ThreeDMillTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F240CCAB28C4932D00323A7E /* Debug */,
+				F240CCAC28C4932D00323A7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -54,6 +54,13 @@
     return spotLightNode;
 }
 
++ (SCNNode *)cameraRootNode:(SCNLookAtConstraint *)constraint {
+    SCNNode *cameraRootNode = [[SCNNode alloc] init];
+    [cameraRootNode addChildNode:[self camera:constraint]];
+    [cameraRootNode addChildNode:[self spotLight:constraint]];
+    return cameraRootNode;
+}
+
 + (SCNNode *)base {
     SCNMaterial *material = [[SCNMaterial alloc] init];
     material.diffuse.contents = [UIColor colorWithRed:0.8 green:0.7 blue:0.2 alpha:1.0];
@@ -73,7 +80,7 @@
     return material;
 }
 
-+ (NSArray<NSArray<SCNNode *> *> *)poles:(NSInteger)columns {
++ (NSArray<NSArray<SCNNode *> *> *)poles:(NSInteger)columns addToNode:(SCNNode *)node {
     CGFloat boardWidth = 22;
     CGFloat poleSpacing = boardWidth/3;
 
@@ -88,6 +95,7 @@
             SCNNode *poleNode = [SCNNode nodeWithGeometry:poleGeometry];
             poleNode.position = SCNVector3Make(poleSpacing * i - boardWidth / 2, 5, poleSpacing * j - boardWidth / 2);
 
+            [node addChildNode:poleNode];
             [columnNodes addObject: poleNode];
         }
         [poleNodes addObject:columnNodes];
@@ -104,6 +112,13 @@
     textNode.hidden = true;
     textNode.castsShadow = false;
     return textNode;
+}
+
++ (SCNLookAtConstraint *)lookAtConstraint:(SCNNode *)node {
+    SCNLookAtConstraint *constraint = [SCNLookAtConstraint lookAtConstraintWithTarget:node];
+    constraint.gimbalLockEnabled = YES;
+    constraint.influenceFactor = 0.8;
+    return constraint;
 }
 
 @end

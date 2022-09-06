@@ -2,15 +2,15 @@
 //  
 //
 
-#import "Sphere.h"
+#import "SphereNode.h"
 
-@interface Sphere ()
+@interface SphereNode ()
 - (instancetype)init:(SCNGeometry *)geometry color:(DDHSphereColor)color;
 @end
 
-@implementation Sphere
+@implementation SphereNode
 
-+ (instancetype)standardSphere:(DDHSphereColor)color {
++ (instancetype)sphereWithColor:(DDHSphereColor)color {
 
     SCNMaterial *material = [[SCNMaterial alloc] init];
     switch (color) {
@@ -36,6 +36,7 @@
         _color = color;
         self.geometry = geometry;
         self.name = @"Sphere";
+        self.moving = YES;
     }
     return self;
 }

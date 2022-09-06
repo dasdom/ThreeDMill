@@ -5,15 +5,18 @@
 #import "GameBaseView.h"
 #import "GameNodeFactory.h"
 #import "Board.h"
-#import "Sphere.h"
+#import "SphereNode.h"
 #import <GLKit/GLKMath.h>
+#import "ActionFactory.h"
 
 @interface GameBaseView ()
 @property SCNNode *cameraRootNode;
-@property NSMutableArray<NSMutableArray<NSMutableArray<Sphere *> *> *> *sphereNodes;
-
+@property NSArray<NSArray<SCNNode *> *> *poleNodes;
+@property NSMutableArray<NSMutableArray<NSMutableArray<SphereNode *> *> *> *sphereNodes;
 @property CGFloat startAngleY;
 @property CGFloat startPositionY;
+@property SCNVector3 preAnimationStartPosition;
+@property SCNVector3 startPosition;
 @end
 
 @implementation GameBaseView
@@ -31,27 +34,15 @@
         SCNNode *groundNode = [GameNodeFactory ground];
         [rootNode addChildNode:groundNode];
 
-        SCNLookAtConstraint *constraint = [SCNLookAtConstraint lookAtConstraintWithTarget:groundNode];
-        constraint.gimbalLockEnabled = YES;
-        constraint.influenceFactor = 0.8;
+        SCNLookAtConstraint *constraint = [GameNodeFactory lookAtConstraint:groundNode];
 
-        SCNNode *cameraNode = [GameNodeFactory camera:constraint];
-        SCNNode *spotlightNode = [GameNodeFactory spotLight:constraint];
-
-        _cameraRootNode = [[SCNNode alloc] init];
-        [_cameraRootNode addChildNode:cameraNode];
-        [_cameraRootNode addChildNode:spotlightNode];
+        _cameraRootNode = [GameNodeFactory cameraRootNode:constraint];
         [rootNode addChildNode:_cameraRootNode];
 
         SCNNode *baseNode = [GameNodeFactory base];
         [rootNode addChildNode:baseNode];
 
-        NSArray<NSArray<SCNNode *> *> *poleNodes = [GameNodeFactory poles:numberOfColumns];
-        [poleNodes enumerateObjectsUsingBlock:^(NSArray<SCNNode *> * _Nonnull columns, NSUInteger idx, BOOL * _Nonnull stop) {
-            [columns enumerateObjectsUsingBlock:^(SCNNode * _Nonnull pole, NSUInteger idx, BOOL * _Nonnull stop) {
-                [rootNode addChildNode:pole];
-            }];
-        }];
+        _poleNodes = [GameNodeFactory poles:numberOfColumns addToNode:rootNode];
 
         SCNNode *textNode = [GameNodeFactory text:@"Mill"];
 
@@ -60,12 +51,15 @@
         [rootNode addChildNode:textRootNode];
 
         for (int i = 0; i < numberOfColumns; i++) {
-            NSMutableArray<NSMutableArray<Sphere *> *> *rows = [[NSMutableArray alloc] init];
+            NSMutableArray<NSMutableArray<SphereNode *> *> *rows = [[NSMutableArray alloc] init];
             for (int j = 0; j < numberOfColumns; j++) {
                 [rows addObject:[[NSMutableArray alloc] init]];
             }
             [self.sphereNodes addObject:rows];
         }
+
+        _preAnimationStartPosition = SCNVector3Make(0, startYAboveBoard+20, 0);
+        _startPosition = SCNVector3Make(0, startYAboveBoard+0, 0);
 
         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         [self addGestureRecognizer:panRecognizer];
@@ -98,6 +92,55 @@
         eulerAngles.y = self.startAngleY - GLKMathDegreesToRadians(translation.x);
         self.cameraRootNode.eulerAngles = eulerAngles;
     }
+}
+
+- (SphereNode *)insertSphereWithColor:(DDHSphereColor)color {
+    SphereNode *sphereNode = [SphereNode sphereWithColor:color];
+    sphereNode.position = self.preAnimationStartPosition;
+
+    [self.scene.rootNode addChildNode:sphereNode];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        SCNAction *moveToStart = [SCNAction moveTo:self.startPosition duration:0.5];
+        [sphereNode runAction:moveToStart];
+    });
+
+    return sphereNode;
+}
+
+- (struct PoleCoordinate)poleForNode:(SCNNode *)node {
+    struct PoleCoordinate poleCoordinate;
+    poleCoordinate.column = -1;
+    poleCoordinate.column = -1;
+    for (int column = 0; column < numberOfColumns; column++) {
+        for (int row = 0; row < numberOfColumns; row++) {
+            if (node == self.poleNodes[column][row]) {
+                poleCoordinate.column = column;
+                poleCoordinate.row = row;
+            }
+        }
+    }
+    return poleCoordinate;
+}
+
+- (SphereNode *)removeTopSphereAtColumn:(NSInteger)column row:(NSInteger)row {
+    if (self.sphereNodes[column][row].count < 1) {
+        return nil;
+    }
+    SphereNode *sphereToRemove = [self.sphereNodes[column][row] lastObject];
+    [self.sphereNodes[column][row] removeLastObject];
+    return sphereToRemove;
+}
+
+- (SphereNode *)firstMovingSphereNode {
+    NSArray<SCNNode *> *movingSphereNodes = [self.scene.rootNode childNodesPassingTest:^BOOL(SCNNode * _Nonnull child, BOOL * _Nonnull stop) {
+        if ([child respondsToSelector:@selector(moving)]) {
+            return [(SphereNode *)child moving];
+        } else {
+            return false;
+        }
+    }];
+    return (SphereNode *)movingSphereNodes.firstObject;
 }
 
 @end
