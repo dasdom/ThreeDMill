@@ -4,15 +4,15 @@
 
 #import "GameBaseView.h"
 #import "GameNodeFactory.h"
-#import "Board.h"
-#import "SphereNode.h"
+#import "DDHBoard.h"
+#import "DDHSphereNode.h"
 #import <GLKit/GLKMath.h>
 #import "ActionFactory.h"
 
 @interface GameBaseView ()
 @property SCNNode *cameraRootNode;
 @property NSArray<NSArray<SCNNode *> *> *poleNodes;
-@property NSMutableArray<NSMutableArray<NSMutableArray<SphereNode *> *> *> *sphereNodes;
+@property NSMutableArray<NSMutableArray<NSMutableArray<DDHSphereNode *> *> *> *sphereNodes;
 @property CGFloat startAngleY;
 @property CGFloat startPositionY;
 @property SCNVector3 preAnimationStartPosition;
@@ -51,7 +51,7 @@
         [rootNode addChildNode:textRootNode];
 
         for (int i = 0; i < numberOfColumns; i++) {
-            NSMutableArray<NSMutableArray<SphereNode *> *> *rows = [[NSMutableArray alloc] init];
+            NSMutableArray<NSMutableArray<DDHSphereNode *> *> *rows = [[NSMutableArray alloc] init];
             for (int j = 0; j < numberOfColumns; j++) {
                 [rows addObject:[[NSMutableArray alloc] init]];
             }
@@ -94,8 +94,8 @@
     }
 }
 
-- (SphereNode *)insertSphereWithColor:(DDHSphereColor)color {
-    SphereNode *sphereNode = [SphereNode sphereWithColor:color];
+- (DDHSphereNode *)insertSphereWithColor:(DDHSphereColor)color {
+    DDHSphereNode *sphereNode = [DDHSphereNode sphereWithColor:color];
     sphereNode.position = self.preAnimationStartPosition;
 
     [self.scene.rootNode addChildNode:sphereNode];
@@ -123,24 +123,24 @@
     return poleCoordinate;
 }
 
-- (SphereNode *)removeTopSphereAtColumn:(NSInteger)column row:(NSInteger)row {
+- (DDHSphereNode *)removeTopSphereAtColumn:(NSInteger)column row:(NSInteger)row {
     if (self.sphereNodes[column][row].count < 1) {
         return nil;
     }
-    SphereNode *sphereToRemove = [self.sphereNodes[column][row] lastObject];
+    DDHSphereNode *sphereToRemove = [self.sphereNodes[column][row] lastObject];
     [self.sphereNodes[column][row] removeLastObject];
     return sphereToRemove;
 }
 
-- (SphereNode *)firstMovingSphereNode {
+- (DDHSphereNode *)firstMovingSphereNode {
     NSArray<SCNNode *> *movingSphereNodes = [self.scene.rootNode childNodesPassingTest:^BOOL(SCNNode * _Nonnull child, BOOL * _Nonnull stop) {
         if ([child respondsToSelector:@selector(moving)]) {
-            return [(SphereNode *)child moving];
+            return [(DDHSphereNode *)child moving];
         } else {
             return false;
         }
     }];
-    return (SphereNode *)movingSphereNodes.firstObject;
+    return (DDHSphereNode *)movingSphereNodes.firstObject;
 }
 
 @end

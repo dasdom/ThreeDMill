@@ -3,14 +3,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Position.h"
-#import "Sphere.h"
+#import "DDHPosition.h"
+#import "DDHSphere.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Move : NSObject
-@property Position *from;
-@property Position *to;
+@interface DDHMove : NSObject
+@property DDHPosition *from;
+@property DDHPosition *to;
 @property DDHSphereColor color;
 @end
 

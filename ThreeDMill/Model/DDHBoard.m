@@ -2,17 +2,17 @@
 //  
 //
 
-#import "Board.h"
-#import "Pole.h"
-#import "Sphere.h"
+#import "DDHBoard.h"
+#import "DDHPole.h"
+#import "DDHSphere.h"
 
 const int numberOfColumns = 4;
 
-@interface Board ()
-@property NSArray<NSArray<Pole *> *> *poles;
+@interface DDHBoard ()
+@property NSArray<NSArray<DDHPole *> *> *poles;
 @end
 
-@implementation Board
+@implementation DDHBoard
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -20,9 +20,9 @@ const int numberOfColumns = 4;
 
         NSMutableArray *poles = [[NSMutableArray alloc] init];
         for (int i = 0; i < numberOfColumns; i++) {
-            NSMutableArray<Pole *> *column = [[NSMutableArray alloc] init];
+            NSMutableArray<DDHPole *> *column = [[NSMutableArray alloc] init];
             for (int j = 0; j < numberOfColumns; j++) {
-                [column addObject:[[Pole alloc] init]];
+                [column addObject:[[DDHPole alloc] init]];
             }
             [poles addObject:column];
         }
@@ -31,22 +31,22 @@ const int numberOfColumns = 4;
     return self;
 }
 
-- (BOOL)addSphere:(Sphere *)sphere column:(int)column row:(int)row {
+- (BOOL)addSphere:(DDHSphere *)sphere column:(int)column row:(int)row {
     if (NO == [self canAddSphereAtColumn:column row:row]) {
         return NO;
     }
 
-    Pole *pole = [self poleAtColumn:column row:row];
+    DDHPole *pole = [self poleAtColumn:column row:row];
     [pole addSphere:sphere];
     return true;
 }
 
 - (BOOL)canAddSphereAtColumn:(int)column row:(int)row {
-    Pole *pole = [self poleAtColumn:column row:row];
+    DDHPole *pole = [self poleAtColumn:column row:row];
     return [pole sphereCount] < numberOfColumns;
 }
 
-- (Pole *)poleAtColumn:(int)column row:(int)row {
+- (DDHPole *)poleAtColumn:(int)column row:(int)row {
     return self.poles[column][row];
 }
 

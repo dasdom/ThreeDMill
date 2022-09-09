@@ -2,13 +2,13 @@
 //  
 //
 
-#import "SphereNode.h"
+#import "DDHSphereNode.h"
 
-@interface SphereNode ()
+@interface DDHSphereNode ()
 - (instancetype)init:(SCNGeometry *)geometry color:(DDHSphereColor)color;
 @end
 
-@implementation SphereNode
+@implementation DDHSphereNode
 
 + (instancetype)sphereWithColor:(DDHSphereColor)color {
 

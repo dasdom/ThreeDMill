@@ -3,17 +3,17 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Board.h"
-#import "Sphere.h"
+#import "DDHBoard.h"
+#import "DDHSphere.h"
 
 @interface BoardTests : XCTestCase
-@property Board *sut;
+@property DDHBoard *sut;
 @end
 
 @implementation BoardTests
 
 - (void)setUp {
-    _sut = [[Board alloc] init];
+    _sut = [[DDHBoard alloc] init];
 }
 
 - (void)tearDown {
@@ -25,7 +25,7 @@
 }
 
 - (void)test_addSphere_returnsYES {
-    Sphere *sphere = [[Sphere alloc] initWithColorType:DDHSphereColorWhite];
+    DDHSphere *sphere = [[DDHSphere alloc] initWithColorType:DDHSphereColorWhite];
     int column = 1;
     int row = 2;
 
@@ -35,7 +35,7 @@
 }
 
 - (void)test_canAddSphere_whenPoleIsFull_shouldReturnFalse {
-    Sphere *sphere = [[Sphere alloc] initWithColorType:DDHSphereColorWhite];
+    DDHSphere *sphere = [[DDHSphere alloc] initWithColorType:DDHSphereColorWhite];
     int column = 1;
     int row = 2;
     int numberOfSpheres = numberOfColumns;
@@ -58,7 +58,7 @@
 }
 
 - (void)test_canAddSphere_whenPoleHas3Spheres_shouldReturnTrue {
-    Sphere *sphere = [[Sphere alloc] initWithColorType:DDHSphereColorWhite];
+    DDHSphere *sphere = [[DDHSphere alloc] initWithColorType:DDHSphereColorWhite];
     int column = 1;
     int row = 2;
     int numberOfSpheres = numberOfColumns-1;

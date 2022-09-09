@@ -6,7 +6,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Position : NSObject
+@interface DDHPosition : NSObject
 @property int column;
 @property int row;
 @property int floor;

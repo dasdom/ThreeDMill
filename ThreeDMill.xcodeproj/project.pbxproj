@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F212391D28C685C0006754E3 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = F212391C28C685C0006754E3 /* Position.m */; };
-		F212392028C68705006754E3 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = F212391F28C68705006754E3 /* Move.m */; };
+		F212391D28C685C0006754E3 /* DDHPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = F212391C28C685C0006754E3 /* DDHPosition.m */; };
+		F212392028C68705006754E3 /* DDHMove.m in Sources */ = {isa = PBXBuildFile; fileRef = F212391F28C68705006754E3 /* DDHMove.m */; };
 		F212392328C7A876006754E3 /* ActionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F212392228C7A876006754E3 /* ActionFactory.m */; };
 		F240CC7328BE83FE00323A7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC7228BE83FE00323A7E /* AppDelegate.m */; };
 		F240CC7528BE83FE00323A7E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = F240CC7428BE83FE00323A7E /* art.scnassets */; };
@@ -18,11 +18,11 @@
 		F240CC8228BE83FE00323A7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8128BE83FE00323A7E /* main.m */; };
 		F240CC8A28BFBB1100323A7E /* GameNodeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8928BFBB1100323A7E /* GameNodeFactory.m */; };
 		F240CC8D28C1E31C00323A7E /* GameBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8C28C1E31C00323A7E /* GameBaseView.m */; };
-		F240CC9028C2051800323A7E /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8F28C2051800323A7E /* Board.m */; };
-		F240CC9428C2085D00323A7E /* SphereNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9328C2085D00323A7E /* SphereNode.m */; };
+		F240CC9028C2051800323A7E /* DDHBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC8F28C2051800323A7E /* DDHBoard.m */; };
+		F240CC9428C2085D00323A7E /* DDHSphereNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9328C2085D00323A7E /* DDHSphereNode.m */; };
 		F240CC9828C23CA900323A7E /* GameBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9728C23CA900323A7E /* GameBaseViewController.m */; };
-		F240CC9B28C359BB00323A7E /* Pole.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9A28C359BB00323A7E /* Pole.m */; };
-		F240CC9F28C4858200323A7E /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9E28C4858200323A7E /* Sphere.m */; };
+		F240CC9B28C359BB00323A7E /* DDHPole.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9A28C359BB00323A7E /* DDHPole.m */; };
+		F240CC9F28C4858200323A7E /* DDHSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9E28C4858200323A7E /* DDHSphere.m */; };
 		F240CCAF28C4935500323A7E /* BoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CCAE28C4935500323A7E /* BoardTests.m */; };
 /* End PBXBuildFile section */
 
@@ -37,10 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F212391B28C685C0006754E3 /* Position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
-		F212391C28C685C0006754E3 /* Position.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
-		F212391E28C68705006754E3 /* Move.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
-		F212391F28C68705006754E3 /* Move.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
+		F212391B28C685C0006754E3 /* DDHPosition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHPosition.h; sourceTree = "<group>"; };
+		F212391C28C685C0006754E3 /* DDHPosition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHPosition.m; sourceTree = "<group>"; };
+		F212391E28C68705006754E3 /* DDHMove.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHMove.h; sourceTree = "<group>"; };
+		F212391F28C68705006754E3 /* DDHMove.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHMove.m; sourceTree = "<group>"; };
 		F212392128C7A876006754E3 /* ActionFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionFactory.h; sourceTree = "<group>"; };
 		F212392228C7A876006754E3 /* ActionFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionFactory.m; sourceTree = "<group>"; };
 		F240CC6E28BE83FE00323A7E /* ThreeDMill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeDMill.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,16 +56,16 @@
 		F240CC8928BFBB1100323A7E /* GameNodeFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameNodeFactory.m; sourceTree = "<group>"; };
 		F240CC8B28C1E31C00323A7E /* GameBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameBaseView.h; sourceTree = "<group>"; };
 		F240CC8C28C1E31C00323A7E /* GameBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameBaseView.m; sourceTree = "<group>"; };
-		F240CC8E28C2051800323A7E /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
-		F240CC8F28C2051800323A7E /* Board.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
-		F240CC9228C2085D00323A7E /* SphereNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereNode.h; sourceTree = "<group>"; };
-		F240CC9328C2085D00323A7E /* SphereNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereNode.m; sourceTree = "<group>"; };
+		F240CC8E28C2051800323A7E /* DDHBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHBoard.h; sourceTree = "<group>"; };
+		F240CC8F28C2051800323A7E /* DDHBoard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHBoard.m; sourceTree = "<group>"; };
+		F240CC9228C2085D00323A7E /* DDHSphereNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHSphereNode.h; sourceTree = "<group>"; };
+		F240CC9328C2085D00323A7E /* DDHSphereNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHSphereNode.m; sourceTree = "<group>"; };
 		F240CC9628C23CA900323A7E /* GameBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameBaseViewController.h; sourceTree = "<group>"; };
 		F240CC9728C23CA900323A7E /* GameBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameBaseViewController.m; sourceTree = "<group>"; };
-		F240CC9928C359BB00323A7E /* Pole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pole.h; sourceTree = "<group>"; };
-		F240CC9A28C359BB00323A7E /* Pole.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pole.m; sourceTree = "<group>"; };
-		F240CC9D28C4858200323A7E /* Sphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
-		F240CC9E28C4858200323A7E /* Sphere.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
+		F240CC9928C359BB00323A7E /* DDHPole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHPole.h; sourceTree = "<group>"; };
+		F240CC9A28C359BB00323A7E /* DDHPole.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHPole.m; sourceTree = "<group>"; };
+		F240CC9D28C4858200323A7E /* DDHSphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHSphere.h; sourceTree = "<group>"; };
+		F240CC9E28C4858200323A7E /* DDHSphere.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHSphere.m; sourceTree = "<group>"; };
 		F240CCA428C4932D00323A7E /* ThreeDMillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreeDMillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F240CCAE28C4935500323A7E /* BoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoardTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,16 +136,16 @@
 		F240CC9128C207FE00323A7E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F240CC8E28C2051800323A7E /* Board.h */,
-				F240CC8F28C2051800323A7E /* Board.m */,
-				F240CC9928C359BB00323A7E /* Pole.h */,
-				F240CC9A28C359BB00323A7E /* Pole.m */,
-				F240CC9D28C4858200323A7E /* Sphere.h */,
-				F240CC9E28C4858200323A7E /* Sphere.m */,
-				F212391B28C685C0006754E3 /* Position.h */,
-				F212391C28C685C0006754E3 /* Position.m */,
-				F212391E28C68705006754E3 /* Move.h */,
-				F212391F28C68705006754E3 /* Move.m */,
+				F240CC8E28C2051800323A7E /* DDHBoard.h */,
+				F240CC8F28C2051800323A7E /* DDHBoard.m */,
+				F240CC9928C359BB00323A7E /* DDHPole.h */,
+				F240CC9A28C359BB00323A7E /* DDHPole.m */,
+				F240CC9D28C4858200323A7E /* DDHSphere.h */,
+				F240CC9E28C4858200323A7E /* DDHSphere.m */,
+				F212391B28C685C0006754E3 /* DDHPosition.h */,
+				F212391C28C685C0006754E3 /* DDHPosition.m */,
+				F212391E28C68705006754E3 /* DDHMove.h */,
+				F212391F28C68705006754E3 /* DDHMove.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,8 +153,8 @@
 		F240CC9528C2086A00323A7E /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				F240CC9228C2085D00323A7E /* SphereNode.h */,
-				F240CC9328C2085D00323A7E /* SphereNode.m */,
+				F240CC9228C2085D00323A7E /* DDHSphereNode.h */,
+				F240CC9328C2085D00323A7E /* DDHSphereNode.m */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -275,18 +275,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F240CC9028C2051800323A7E /* Board.m in Sources */,
+				F240CC9028C2051800323A7E /* DDHBoard.m in Sources */,
 				F240CC8A28BFBB1100323A7E /* GameNodeFactory.m in Sources */,
-				F240CC9428C2085D00323A7E /* SphereNode.m in Sources */,
+				F240CC9428C2085D00323A7E /* DDHSphereNode.m in Sources */,
 				F212392328C7A876006754E3 /* ActionFactory.m in Sources */,
 				F240CC7828BE83FE00323A7E /* GameViewController.m in Sources */,
-				F212392028C68705006754E3 /* Move.m in Sources */,
+				F212392028C68705006754E3 /* DDHMove.m in Sources */,
 				F240CC8D28C1E31C00323A7E /* GameBaseView.m in Sources */,
-				F240CC9F28C4858200323A7E /* Sphere.m in Sources */,
+				F240CC9F28C4858200323A7E /* DDHSphere.m in Sources */,
 				F240CC8228BE83FE00323A7E /* main.m in Sources */,
-				F240CC9B28C359BB00323A7E /* Pole.m in Sources */,
+				F240CC9B28C359BB00323A7E /* DDHPole.m in Sources */,
 				F240CC7328BE83FE00323A7E /* AppDelegate.m in Sources */,
-				F212391D28C685C0006754E3 /* Position.m in Sources */,
+				F212391D28C685C0006754E3 /* DDHPosition.m in Sources */,
 				F240CC9828C23CA900323A7E /* GameBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

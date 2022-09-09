@@ -11,7 +11,7 @@ typedef NS_ENUM(NSInteger, DDHSphereColor) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Sphere : NSObject
+@interface DDHSphere : NSObject
 @property DDHSphereColor colorType;
 - (instancetype)initWithColorType:(DDHSphereColor)type;
 @end

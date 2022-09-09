@@ -4,19 +4,19 @@
 
 #import "GameBaseViewController.h"
 #import "GameBaseView.h"
-#import "Board.h"
+#import "DDHBoard.h"
 #import "ActionFactory.h"
 
 @interface GameBaseViewController ()
 @property BOOL aSphereIsMoving;
-@property Board *board;
+@property DDHBoard *board;
 @end
 
 @implementation GameBaseViewController
 
 - (instancetype)init {
     if (self = [super init]) {
-        _board = [[Board alloc] init];
+        _board = [[DDHBoard alloc] init];
     }
     return self;
 }
@@ -125,7 +125,7 @@
     int floor = [self.board numberOfSpheresAtColumn:column andRow:row];
 
     GameBaseView *gameBaseView = (GameBaseView *)self.view;
-    SphereNode *movingSphereNode = [gameBaseView firstMovingSphereNode];
+    DDHSphereNode *movingSphereNode = [gameBaseView firstMovingSphereNode];
 
     SCNAction *moveToPole = [ActionFactory actionToMoveToNode:pole];
     SCNAction *moveDown = [ActionFactory actionToMoveDownToNode:pole floor:floor];

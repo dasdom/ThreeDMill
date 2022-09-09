@@ -3,11 +3,11 @@
 //
 
 #import <SceneKit/SceneKit.h>
-#import "Sphere.h"
+#import "DDHSphere.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SphereNode : SCNNode
+@interface DDHSphereNode : SCNNode
 @property DDHSphereColor color;
 @property BOOL moving;
 + (instancetype)sphereWithColor:(DDHSphereColor)color;

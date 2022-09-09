@@ -2,12 +2,12 @@
 //  
 //
 
-#import "Position.h"
+#import "DDHPosition.h"
 
-@implementation Position
+@implementation DDHPosition
 
 + (instancetype)offBoard {
-    return [[Position alloc] initWithColumn:-1 row:-1 andFloor:-1];
+    return [[DDHPosition alloc] initWithColumn:-1 row:-1 andFloor:-1];
 }
 
 - (instancetype)initWithColumn:(int)column row:(int)row andFloor:(int)floor {

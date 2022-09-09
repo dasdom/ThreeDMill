@@ -2,8 +2,8 @@
 //  
 //
 
-#import "Move.h"
+#import "DDHMove.h"
 
-@implementation Move
+@implementation DDHMove
 
 @end

@@ -2,13 +2,13 @@
 //  
 //
 
-#import "Pole.h"
+#import "DDHPole.h"
 
-@interface Pole ()
-@property NSArray<Sphere *> *spheres;
+@interface DDHPole ()
+@property NSArray<DDHSphere *> *spheres;
 @end
 
-@implementation Pole
+@implementation DDHPole
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -21,11 +21,11 @@
     return [self.spheres count];
 }
 
-- (Sphere *)lastSphereColor {
+- (DDHSphere *)lastSphereColor {
     return self.spheres.lastObject;
 }
 
-- (void)addSphere:(Sphere *)sphere {
+- (void)addSphere:(DDHSphere *)sphere {
     self.spheres = [self.spheres arrayByAddingObject:sphere];
 }
 

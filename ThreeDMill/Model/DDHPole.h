@@ -3,14 +3,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Sphere.h"
+#import "DDHSphere.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Pole : NSObject
+@interface DDHPole : NSObject
 - (int)sphereCount;
-- (Sphere *)lastSphereColor;
-- (void)addSphere:(Sphere *)sphere;
+- (DDHSphere *)lastSphereColor;
+- (void)addSphere:(DDHSphere *)sphere;
 @end
 
 NS_ASSUME_NONNULL_END

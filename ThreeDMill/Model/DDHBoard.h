@@ -3,7 +3,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Move.h"
+#import "DDHMove.h"
 
 extern const int numberOfColumns;
 
@@ -16,14 +16,14 @@ typedef NS_ENUM(NSInteger, DDHBoardMode) {
     DDHBoardModeFinish
 };
 
-@class Sphere;
+@class DDHSphere;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Board : NSObject
+@interface DDHBoard : NSObject
 @property DDHBoardMode mode;
-@property NSArray<Move *> *lastMoves;
-- (BOOL)addSphere:(Sphere *)sphere column:(int)column row:(int)row;
+@property NSArray<DDHMove *> *lastMoves;
+- (BOOL)addSphere:(DDHSphere *)sphere column:(int)column row:(int)row;
 - (BOOL)canAddSphereAtColumn:(int)column row:(int)row;
 - (int)numberOfSpheresAtColumn:(int)column andRow:(int)row;
 @end

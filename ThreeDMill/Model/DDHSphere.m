@@ -2,9 +2,9 @@
 //  
 //
 
-#import "Sphere.h"
+#import "DDHSphere.h"
 
-@implementation Sphere
+@implementation DDHSphere
 
 - (instancetype)initWithColorType:(DDHSphereColor)type {
     if (self = [super init]) {
@@ -29,14 +29,14 @@
     return color;
 }
 
-- (Sphere *)oposit {
-    Sphere *sphere;
+- (DDHSphere *)oposit {
+    DDHSphere *sphere;
     switch (self.colorType) {
         case DDHSphereColorRed:
-            sphere = [[Sphere alloc] initWithColorType:DDHSphereColorWhite];
+            sphere = [[DDHSphere alloc] initWithColorType:DDHSphereColorWhite];
             break;
         case DDHSphereColorWhite:
-            sphere = [[Sphere alloc] initWithColorType:DDHSphereColorRed];
+            sphere = [[DDHSphere alloc] initWithColorType:DDHSphereColorRed];
         default:
             NSAssert(NO, @"This should never happen.");
             break;
