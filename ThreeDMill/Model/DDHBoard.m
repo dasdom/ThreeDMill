@@ -16,6 +16,8 @@ const int numberOfColumns = 4;
 
 - (instancetype)init {
     if (self = [super init]) {
+
+        _currentPlayer = [DDHPlayer whitePlayer];
         _mode = DDHBoardModeAddSpheres;
 
         NSMutableArray *poles = [[NSMutableArray alloc] init];

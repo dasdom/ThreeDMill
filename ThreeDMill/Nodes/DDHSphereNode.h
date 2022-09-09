@@ -3,7 +3,7 @@
 //
 
 #import <SceneKit/SceneKit.h>
-#import "DDHSphere.h"
+#import "DDHSphereColor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

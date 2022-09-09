@@ -3,11 +3,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSInteger, DDHSphereColor) {
-    DDHSphereColorWhite,
-    DDHSphereColorRed
-};
+#import "DDHSphereColor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

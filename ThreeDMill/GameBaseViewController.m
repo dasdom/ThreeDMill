@@ -139,15 +139,39 @@
         move = [SCNAction sequence:@[moveToPole, moveDown]];
     }
 
-    [movingSphereNode runAction:move];
+    DDHSphere *sphereToAdd = [[DDHSphere alloc] initWithColorType:self.board.currentPlayer.color];
+    [self.board addSphere:sphereToAdd column:column row:row];
+
+    [movingSphereNode runAction:move completionHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self updateGame];
+        });
+    }];
 }
 
 - (void)animateLastMoves {
 
     if (self.board.lastMoves.count < 1) {
         GameBaseView *gameBaseView = (GameBaseView *)self.view;
-        [gameBaseView insertSphereWithColor:DDHSphereColorWhite];
+        [gameBaseView insertSphereWithColor:self.board.currentPlayer.color];
     }
+}
+
+//- (void)resetBoard {
+//    self.board = [[DDHBoard alloc] init];
+//
+//    GameBaseView *gameBaseView = (GameBaseView *)self.view;
+//    [gameBaseView reset];
+//}
+
+- (void)updateGame {
+    GameBaseView *gameBaseView = (GameBaseView *)self.view;
+    DDHSphereNode *movingSphereNode = [gameBaseView firstMovingSphereNode];
+    movingSphereNode.moving = NO;
+
+    self.board.currentPlayer = self.board.currentPlayer.opponent;
+
+    [gameBaseView insertSphereWithColor:self.board.currentPlayer.color];
 }
 
 // MARK: - Actions

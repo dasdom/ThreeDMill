@@ -4,6 +4,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DDHMove.h"
+#import "DDHPlayer.h"
 
 extern const int numberOfColumns;
 
@@ -21,6 +22,7 @@ typedef NS_ENUM(NSInteger, DDHBoardMode) {
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DDHBoard : NSObject
+@property DDHPlayer *currentPlayer;
 @property DDHBoardMode mode;
 @property NSArray<DDHMove *> *lastMoves;
 - (BOOL)addSphere:(DDHSphere *)sphere column:(int)column row:(int)row;

@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (DDHSphereNode *)removeTopSphereAtColumn:(NSInteger)column row:(NSInteger)row;
 - (DDHSphereNode *)insertSphereWithColor:(DDHSphereColor)color;
 - (DDHSphereNode *)firstMovingSphereNode;
+- (void)reset;
 @end
 
 NS_ASSUME_NONNULL_END

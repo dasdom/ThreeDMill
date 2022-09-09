@@ -143,4 +143,16 @@
     return (DDHSphereNode *)movingSphereNodes.firstObject;
 }
 
+- (void)reset {
+    for (int column = 0; column < numberOfColumns; column++) {
+        for (int row = 0; row < numberOfColumns; row++) {
+            while (self.sphereNodes[column][row].count > 0) {
+                DDHSphereNode *sphereToRemove = [self.sphereNodes[column][row] lastObject];
+                [self.sphereNodes[column][row] removeLastObject];
+                [sphereToRemove removeFromParentNode];
+            }
+        }
+    }
+}
+
 @end
