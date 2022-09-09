@@ -21,8 +21,9 @@
 
 + (SCNLight *)ambientLight {
     SCNLight *light = [[SCNLight alloc] init];
-    light.color = [UIColor grayColor];
+    light.color = [UIColor colorWithWhite:1 alpha:1];
     light.type = SCNLightTypeAmbient;
+    light.intensity = 400;
     return light;
 }
 
@@ -45,7 +46,7 @@
     spotLight.spotInnerAngle = 70;
     spotLight.spotOuterAngle = 90;
     spotLight.zFar = 500;
-    spotLight.intensity = 800;
+    spotLight.intensity = 600;
 
     SCNNode *spotLightNode = [[SCNNode alloc] init];
     spotLightNode.light = spotLight;
@@ -76,7 +77,8 @@
 
 + (SCNMaterial *)poleMaterial {
     SCNMaterial *material = [[SCNMaterial alloc] init];
-    material.diffuse.contents = [[UIColor yellowColor] colorWithAlphaComponent:0.8];
+//    material.diffuse.contents = [[UIColor yellowColor] colorWithAlphaComponent:0.8];
+    material.diffuse.contents = [UIColor yellowColor];
     return material;
 }
 
@@ -89,7 +91,7 @@
     for (int j = 0; j < columns; j++) {
         NSMutableArray<SCNNode *> *columnNodes = [[NSMutableArray<SCNNode *> alloc] init];
         for (int i = 0; i < columns; i++) {
-            SCNGeometry *poleGeometry = [SCNCylinder cylinderWithRadius: 1.4 height: 24];
+            SCNGeometry *poleGeometry = [SCNCylinder cylinderWithRadius: 1.1 height: 24];
             poleGeometry.materials = @[[self poleMaterial]];
 
             SCNNode *poleNode = [SCNNode nodeWithGeometry:poleGeometry];
