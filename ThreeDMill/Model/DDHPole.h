@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (int)sphereCount;
 - (DDHSphere *)lastSphereColor;
 - (void)addSphere:(DDHSphere *)sphere;
+- (DDHSphere *)sphereAtFloor:(int)floor;
 @end
 
 NS_ASSUME_NONNULL_END

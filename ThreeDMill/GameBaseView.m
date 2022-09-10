@@ -8,6 +8,8 @@
 #import "DDHSphereNode.h"
 #import <GLKit/GLKMath.h>
 #import "ActionFactory.h"
+#import "DDHMill.h"
+#import "DDHPole.h"
 
 @interface GameBaseView ()
 @property SCNNode *cameraRootNode;
@@ -50,12 +52,14 @@
         [textRootNode addChildNode:textNode];
         [rootNode addChildNode:textRootNode];
 
+        _sphereNodes = [[NSMutableArray alloc] init];
+
         for (int i = 0; i < numberOfColumns; i++) {
             NSMutableArray<NSMutableArray<DDHSphereNode *> *> *rows = [[NSMutableArray alloc] init];
             for (int j = 0; j < numberOfColumns; j++) {
                 [rows addObject:[[NSMutableArray alloc] init]];
             }
-            [self.sphereNodes addObject:rows];
+            [_sphereNodes addObject:rows];
         }
 
         _preAnimationStartPosition = SCNVector3Make(0, startYAboveBoard+20, 0);
@@ -108,6 +112,36 @@
     return sphereNode;
 }
 
+//- (void)updateUIWithBoard:(DDHBoard *)board {
+//
+//    _sphereNodes = [[NSMutableArray alloc] init];
+//
+//    for (int i = 0; i < numberOfColumns; i++) {
+//        NSMutableArray<NSMutableArray<DDHSphereNode *> *> *rows = [[NSMutableArray alloc] init];
+//        for (int j = 0; j < numberOfColumns; j++) {
+//            [rows addObject:[[NSMutableArray alloc] init]];
+//        }
+//        [self.sphereNodes addObject:rows];
+//    }
+//
+//    for (int column = 0; column < numberOfColumns; column++) {
+//        for (int row = 0; row < numberOfColumns; row++) {
+//            DDHPole *pole = [board poleAtColumn:column row:row];
+//            for (int floor = 0; floor < numberOfColumns; floor++) {
+//                DDHSphere *sphere = [pole sphereAtFloor:floor];
+//                if (sphere) {
+//                    DDHSphereNode *sphereNode = [DDHSphereNode sphereWithColor:sphere.colorType];
+//                    [self.sphereNodes[column][row] addObject:sphereNode];
+//                }
+//            }
+//        }
+//    }
+//}
+
+- (void)addSphereNode:(DDHSphereNode *)sphereNode toColumn:(int)column andRow:(int)row {
+    [self.sphereNodes[column][row] addObject:sphereNode];
+}
+
 - (struct PoleCoordinate)poleForNode:(SCNNode *)node {
     struct PoleCoordinate poleCoordinate;
     poleCoordinate.column = -1;
@@ -151,6 +185,28 @@
                 [self.sphereNodes[column][row] removeLastObject];
                 [sphereToRemove removeFromParentNode];
             }
+        }
+    }
+}
+
+- (void)fadeAllButSpheresInMill:(DDHMill *)mill toOpacity:(CGFloat)opacity {
+
+    SCNAction *fadeAction = [SCNAction fadeOpacityTo:opacity duration:0.5];
+
+    for (int column = 0; column < numberOfColumns; column++) {
+        for (int row = 0; row < numberOfColumns; row++) {
+            SCNNode *poleNode = self.poleNodes[column][row];
+            [poleNode runAction:fadeAction];
+
+            NSArray<SCNNode *> *sphereNodesOnPole = self.sphereNodes[column][row];
+            [sphereNodesOnPole enumerateObjectsUsingBlock:^(SCNNode * _Nonnull sphereNode, NSUInteger idx, BOOL * _Nonnull stop) {
+
+                DDHPosition *position = [[DDHPosition alloc] initWithColumn:column row:row andFloor:(int)idx];
+                if (NO == [mill containsSphereAtPosition:position]) {
+                    SCNAction *fadeAction = [SCNAction fadeOpacityTo:opacity duration:0.5];
+                    [sphereNode runAction:fadeAction];
+                }
+            }];
         }
     }
 }

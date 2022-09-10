@@ -18,7 +18,7 @@
 }
 
 - (int)sphereCount {
-    return [self.spheres count];
+    return (int)[self.spheres count];
 }
 
 - (DDHSphere *)lastSphereColor {
@@ -27,6 +27,13 @@
 
 - (void)addSphere:(DDHSphere *)sphere {
     self.spheres = [self.spheres arrayByAddingObject:sphere];
+}
+
+- (DDHSphere *)sphereAtFloor:(int)floor {
+    if (self.sphereCount <= floor) {
+        return nil;
+    }
+    return self.spheres[floor];
 }
 
 @end

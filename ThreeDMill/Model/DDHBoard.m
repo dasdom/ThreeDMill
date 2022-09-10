@@ -5,11 +5,15 @@
 #import "DDHBoard.h"
 #import "DDHPole.h"
 #import "DDHSphere.h"
+#import "DDHMill.h"
+#import "DDHBoardChecker.h"
+#import "DDHCheckResult.h"
 
 const int numberOfColumns = 4;
 
 @interface DDHBoard ()
 @property NSArray<NSArray<DDHPole *> *> *poles;
+@property NSArray<DDHMill *> *knownMills;
 @end
 
 @implementation DDHBoard
@@ -54,6 +58,16 @@ const int numberOfColumns = 4;
 
 - (int)numberOfSpheresAtColumn:(int)column andRow:(int)row {
     return self.poles[column][row].sphereCount;
+}
+
+- (DDHMill *)checkForNewMill {
+    DDHCheckResult *checkResult = [DDHBoardChecker checkForMatchOnPoles:self.poles knownMills:self.knownMills];
+
+    NSLog(@"checkResult: %@", checkResult);
+
+    self.knownMills = [checkResult knownMills];
+
+    return [checkResult discoveredMill];
 }
 
 @end

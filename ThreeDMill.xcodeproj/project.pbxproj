@@ -25,6 +25,9 @@
 		F240CC9F28C4858200323A7E /* DDHSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CC9E28C4858200323A7E /* DDHSphere.m */; };
 		F240CCAF28C4935500323A7E /* BoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F240CCAE28C4935500323A7E /* BoardTests.m */; };
 		F2507A0428CB1AC500BDC3BC /* DDHPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2507A0328CB1AC500BDC3BC /* DDHPlayer.m */; };
+		F2507A0828CB4E7900BDC3BC /* DDHBoardChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = F2507A0728CB4E7800BDC3BC /* DDHBoardChecker.m */; };
+		F2507A0B28CB4FF100BDC3BC /* DDHMill.m in Sources */ = {isa = PBXBuildFile; fileRef = F2507A0A28CB4FF100BDC3BC /* DDHMill.m */; };
+		F2507A0E28CB6CB200BDC3BC /* DDHCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F2507A0D28CB6CB200BDC3BC /* DDHCheckResult.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,12 @@
 		F2507A0228CB1AC500BDC3BC /* DDHPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHPlayer.h; sourceTree = "<group>"; };
 		F2507A0328CB1AC500BDC3BC /* DDHPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHPlayer.m; sourceTree = "<group>"; };
 		F2507A0528CB1BE600BDC3BC /* DDHSphereColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHSphereColor.h; sourceTree = "<group>"; };
+		F2507A0628CB4E7800BDC3BC /* DDHBoardChecker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHBoardChecker.h; sourceTree = "<group>"; };
+		F2507A0728CB4E7800BDC3BC /* DDHBoardChecker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHBoardChecker.m; sourceTree = "<group>"; };
+		F2507A0928CB4FF100BDC3BC /* DDHMill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHMill.h; sourceTree = "<group>"; };
+		F2507A0A28CB4FF100BDC3BC /* DDHMill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHMill.m; sourceTree = "<group>"; };
+		F2507A0C28CB6CB200BDC3BC /* DDHCheckResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHCheckResult.h; sourceTree = "<group>"; };
+		F2507A0D28CB6CB200BDC3BC /* DDHCheckResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHCheckResult.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +151,12 @@
 			children = (
 				F240CC8E28C2051800323A7E /* DDHBoard.h */,
 				F240CC8F28C2051800323A7E /* DDHBoard.m */,
+				F2507A0628CB4E7800BDC3BC /* DDHBoardChecker.h */,
+				F2507A0728CB4E7800BDC3BC /* DDHBoardChecker.m */,
+				F2507A0C28CB6CB200BDC3BC /* DDHCheckResult.h */,
+				F2507A0D28CB6CB200BDC3BC /* DDHCheckResult.m */,
+				F2507A0928CB4FF100BDC3BC /* DDHMill.h */,
+				F2507A0A28CB4FF100BDC3BC /* DDHMill.m */,
 				F2507A0228CB1AC500BDC3BC /* DDHPlayer.h */,
 				F2507A0328CB1AC500BDC3BC /* DDHPlayer.m */,
 				F240CC9928C359BB00323A7E /* DDHPole.h */,
@@ -227,6 +242,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				CLASSPREFIX = DDH;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					F240CC6D28BE83FE00323A7E = {
@@ -284,7 +300,9 @@
 			files = (
 				F240CC9028C2051800323A7E /* DDHBoard.m in Sources */,
 				F240CC8A28BFBB1100323A7E /* GameNodeFactory.m in Sources */,
+				F2507A0B28CB4FF100BDC3BC /* DDHMill.m in Sources */,
 				F240CC9428C2085D00323A7E /* DDHSphereNode.m in Sources */,
+				F2507A0E28CB6CB200BDC3BC /* DDHCheckResult.m in Sources */,
 				F2507A0428CB1AC500BDC3BC /* DDHPlayer.m in Sources */,
 				F212392328C7A876006754E3 /* ActionFactory.m in Sources */,
 				F240CC7828BE83FE00323A7E /* GameViewController.m in Sources */,
@@ -292,6 +310,7 @@
 				F240CC8D28C1E31C00323A7E /* GameBaseView.m in Sources */,
 				F240CC9F28C4858200323A7E /* DDHSphere.m in Sources */,
 				F240CC8228BE83FE00323A7E /* main.m in Sources */,
+				F2507A0828CB4E7900BDC3BC /* DDHBoardChecker.m in Sources */,
 				F240CC9B28C359BB00323A7E /* DDHPole.m in Sources */,
 				F240CC7328BE83FE00323A7E /* AppDelegate.m in Sources */,
 				F212391D28C685C0006754E3 /* DDHPosition.m in Sources */,

@@ -141,6 +141,7 @@
 
     DDHSphere *sphereToAdd = [[DDHSphere alloc] initWithColorType:self.board.currentPlayer.color];
     [self.board addSphere:sphereToAdd column:column row:row];
+    [gameBaseView addSphereNode:movingSphereNode toColumn:column andRow:row];
 
     [movingSphereNode runAction:move completionHandler:^{
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -165,7 +166,14 @@
 //}
 
 - (void)updateGame {
+
+    DDHMill *mill = [self.board checkForNewMill];
+
     GameBaseView *gameBaseView = (GameBaseView *)self.view;
+    if (mill) {
+        [gameBaseView fadeAllButSpheresInMill:mill toOpacity:0.3];
+    }
+
     DDHSphereNode *movingSphereNode = [gameBaseView firstMovingSphereNode];
     movingSphereNode.moving = NO;
 
