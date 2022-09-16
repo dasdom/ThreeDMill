@@ -28,6 +28,12 @@
 		F2507A0828CB4E7900BDC3BC /* DDHBoardChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = F2507A0728CB4E7800BDC3BC /* DDHBoardChecker.m */; };
 		F2507A0B28CB4FF100BDC3BC /* DDHMill.m in Sources */ = {isa = PBXBuildFile; fileRef = F2507A0A28CB4FF100BDC3BC /* DDHMill.m */; };
 		F2507A0E28CB6CB200BDC3BC /* DDHCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F2507A0D28CB6CB200BDC3BC /* DDHCheckResult.m */; };
+		F28146B928D116F700327035 /* DDHBoard+MinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F28146B828D116F700327035 /* DDHBoard+MinmaxStrategy.m */; };
+		F28146BC28D117FC00327035 /* DDHMove+MinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F28146BB28D117FC00327035 /* DDHMove+MinmaxStrategy.m */; };
+		F28146BF28D22E2F00327035 /* DDHPlayer+MinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F28146BE28D22E2F00327035 /* DDHPlayer+MinmaxStrategy.m */; };
+		F28146C228D3901800327035 /* DDHSphereColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F28146C128D3901800327035 /* DDHSphereColorHelper.m */; };
+		F29FFC5628CFA2F300D6642E /* DDHGameViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F29FFC5528CFA2F300D6642E /* DDHGameViewFactory.m */; };
+		F2A6B69328CDCA0F0099E571 /* DDHBoardCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A6B69228CDCA0F0099E571 /* DDHBoardCheckerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +87,17 @@
 		F2507A0A28CB4FF100BDC3BC /* DDHMill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHMill.m; sourceTree = "<group>"; };
 		F2507A0C28CB6CB200BDC3BC /* DDHCheckResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHCheckResult.h; sourceTree = "<group>"; };
 		F2507A0D28CB6CB200BDC3BC /* DDHCheckResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHCheckResult.m; sourceTree = "<group>"; };
+		F28146B728D116F700327035 /* DDHBoard+MinmaxStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDHBoard+MinmaxStrategy.h"; sourceTree = "<group>"; };
+		F28146B828D116F700327035 /* DDHBoard+MinmaxStrategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DDHBoard+MinmaxStrategy.m"; sourceTree = "<group>"; };
+		F28146BA28D117FC00327035 /* DDHMove+MinmaxStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDHMove+MinmaxStrategy.h"; sourceTree = "<group>"; };
+		F28146BB28D117FC00327035 /* DDHMove+MinmaxStrategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DDHMove+MinmaxStrategy.m"; sourceTree = "<group>"; };
+		F28146BD28D22E2F00327035 /* DDHPlayer+MinmaxStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDHPlayer+MinmaxStrategy.h"; sourceTree = "<group>"; };
+		F28146BE28D22E2F00327035 /* DDHPlayer+MinmaxStrategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DDHPlayer+MinmaxStrategy.m"; sourceTree = "<group>"; };
+		F28146C028D3901800327035 /* DDHSphereColorHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHSphereColorHelper.h; sourceTree = "<group>"; };
+		F28146C128D3901800327035 /* DDHSphereColorHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHSphereColorHelper.m; sourceTree = "<group>"; };
+		F29FFC5428CFA2F300D6642E /* DDHGameViewFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHGameViewFactory.h; sourceTree = "<group>"; };
+		F29FFC5528CFA2F300D6642E /* DDHGameViewFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHGameViewFactory.m; sourceTree = "<group>"; };
+		F2A6B69228CDCA0F0099E571 /* DDHBoardCheckerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDHBoardCheckerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +150,8 @@
 				F240CC9728C23CA900323A7E /* GameBaseViewController.m */,
 				F240CC8B28C1E31C00323A7E /* GameBaseView.h */,
 				F240CC8C28C1E31C00323A7E /* GameBaseView.m */,
+				F29FFC5428CFA2F300D6642E /* DDHGameViewFactory.h */,
+				F29FFC5528CFA2F300D6642E /* DDHGameViewFactory.m */,
 				F240CC9528C2086A00323A7E /* Nodes */,
 				F240CC9128C207FE00323A7E /* Model */,
 				F240CC8828BFBB1100323A7E /* GameNodeFactory.h */,
@@ -151,6 +170,8 @@
 			children = (
 				F240CC8E28C2051800323A7E /* DDHBoard.h */,
 				F240CC8F28C2051800323A7E /* DDHBoard.m */,
+				F28146B728D116F700327035 /* DDHBoard+MinmaxStrategy.h */,
+				F28146B828D116F700327035 /* DDHBoard+MinmaxStrategy.m */,
 				F2507A0628CB4E7800BDC3BC /* DDHBoardChecker.h */,
 				F2507A0728CB4E7800BDC3BC /* DDHBoardChecker.m */,
 				F2507A0C28CB6CB200BDC3BC /* DDHCheckResult.h */,
@@ -159,6 +180,8 @@
 				F2507A0A28CB4FF100BDC3BC /* DDHMill.m */,
 				F2507A0228CB1AC500BDC3BC /* DDHPlayer.h */,
 				F2507A0328CB1AC500BDC3BC /* DDHPlayer.m */,
+				F28146BD28D22E2F00327035 /* DDHPlayer+MinmaxStrategy.h */,
+				F28146BE28D22E2F00327035 /* DDHPlayer+MinmaxStrategy.m */,
 				F240CC9928C359BB00323A7E /* DDHPole.h */,
 				F240CC9A28C359BB00323A7E /* DDHPole.m */,
 				F240CC9D28C4858200323A7E /* DDHSphere.h */,
@@ -167,7 +190,11 @@
 				F212391C28C685C0006754E3 /* DDHPosition.m */,
 				F212391E28C68705006754E3 /* DDHMove.h */,
 				F212391F28C68705006754E3 /* DDHMove.m */,
+				F28146BA28D117FC00327035 /* DDHMove+MinmaxStrategy.h */,
+				F28146BB28D117FC00327035 /* DDHMove+MinmaxStrategy.m */,
 				F2507A0528CB1BE600BDC3BC /* DDHSphereColor.h */,
+				F28146C028D3901800327035 /* DDHSphereColorHelper.h */,
+				F28146C128D3901800327035 /* DDHSphereColorHelper.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				F240CCAE28C4935500323A7E /* BoardTests.m */,
+				F2A6B69228CDCA0F0099E571 /* DDHBoardCheckerTests.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,17 +331,22 @@
 				F2507A0B28CB4FF100BDC3BC /* DDHMill.m in Sources */,
 				F240CC9428C2085D00323A7E /* DDHSphereNode.m in Sources */,
 				F2507A0E28CB6CB200BDC3BC /* DDHCheckResult.m in Sources */,
+				F28146C228D3901800327035 /* DDHSphereColorHelper.m in Sources */,
 				F2507A0428CB1AC500BDC3BC /* DDHPlayer.m in Sources */,
 				F212392328C7A876006754E3 /* ActionFactory.m in Sources */,
 				F240CC7828BE83FE00323A7E /* GameViewController.m in Sources */,
 				F212392028C68705006754E3 /* DDHMove.m in Sources */,
+				F28146BF28D22E2F00327035 /* DDHPlayer+MinmaxStrategy.m in Sources */,
 				F240CC8D28C1E31C00323A7E /* GameBaseView.m in Sources */,
 				F240CC9F28C4858200323A7E /* DDHSphere.m in Sources */,
 				F240CC8228BE83FE00323A7E /* main.m in Sources */,
+				F29FFC5628CFA2F300D6642E /* DDHGameViewFactory.m in Sources */,
 				F2507A0828CB4E7900BDC3BC /* DDHBoardChecker.m in Sources */,
 				F240CC9B28C359BB00323A7E /* DDHPole.m in Sources */,
+				F28146B928D116F700327035 /* DDHBoard+MinmaxStrategy.m in Sources */,
 				F240CC7328BE83FE00323A7E /* AppDelegate.m in Sources */,
 				F212391D28C685C0006754E3 /* DDHPosition.m in Sources */,
+				F28146BC28D117FC00327035 /* DDHMove+MinmaxStrategy.m in Sources */,
 				F240CC9828C23CA900323A7E /* GameBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F240CCAF28C4935500323A7E /* BoardTests.m in Sources */,
+				F2A6B69328CDCA0F0099E571 /* DDHBoardCheckerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

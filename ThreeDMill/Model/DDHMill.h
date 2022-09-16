@@ -4,11 +4,14 @@
 
 #import <Foundation/Foundation.h>
 #import "DDHPosition.h"
+#import "DDHSphereColor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DDHMill : NSObject
-@property NSArray<DDHPosition *> *positions;
+@property (nonatomic) NSArray<DDHPosition *> *positions;
+@property DDHSphereColor color;
+- (instancetype)initWithString:(NSString *)string;
 - (void)addPosition:(DDHPosition *)position;
 - (BOOL)containsSphereAtPosition:(DDHPosition *)position;
 @end

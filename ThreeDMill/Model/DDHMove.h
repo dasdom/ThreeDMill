@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property DDHPosition *from;
 @property DDHPosition *to;
 @property DDHSphereColor color;
+- (instancetype)initWithTo:(DDHPosition *)to sphereColor:(DDHSphereColor)color;
 @end
 
 NS_ASSUME_NONNULL_END

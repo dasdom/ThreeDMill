@@ -143,19 +143,23 @@
     [self.board addSphere:sphereToAdd column:column row:row];
     [gameBaseView addSphereNode:movingSphereNode toColumn:column andRow:row];
 
+    self.aSphereIsMoving = YES;
+
     [movingSphereNode runAction:move completionHandler:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [self updateGame];
+
+            self.aSphereIsMoving = NO;
         });
     }];
 }
 
 - (void)animateLastMoves {
 
-    if (self.board.lastMoves.count < 1) {
-        GameBaseView *gameBaseView = (GameBaseView *)self.view;
-        [gameBaseView insertSphereWithColor:self.board.currentPlayer.color];
-    }
+//    if (self.board.lastMoves.count < 1) {
+//        GameBaseView *gameBaseView = (GameBaseView *)self.view;
+//        [gameBaseView insertSphereWithColor:self.board.currentPlayer.color];
+//    }
 }
 
 //- (void)resetBoard {

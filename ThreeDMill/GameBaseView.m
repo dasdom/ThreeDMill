@@ -2,14 +2,15 @@
 //  
 //
 
-#import "GameBaseView.h"
-#import "GameNodeFactory.h"
-#import "DDHBoard.h"
-#import "DDHSphereNode.h"
-#import <GLKit/GLKMath.h>
 #import "ActionFactory.h"
+#import "DDHBoard.h"
+#import "DDHGameViewFactory.h"
 #import "DDHMill.h"
 #import "DDHPole.h"
+#import "DDHSphereNode.h"
+#import "GameBaseView.h"
+#import "GameNodeFactory.h"
+#import <GLKit/GLKMath.h>
 
 @interface GameBaseView ()
 @property SCNNode *cameraRootNode;
@@ -19,6 +20,8 @@
 @property CGFloat startPositionY;
 @property SCNVector3 preAnimationStartPosition;
 @property SCNVector3 startPosition;
+@property (nonatomic) UILabel *remainingWhiteSpheresLabel;
+@property (nonatomic) UILabel *remainingRedSpheresLabel;
 @end
 
 @implementation GameBaseView
@@ -62,11 +65,34 @@
             [_sphereNodes addObject:rows];
         }
 
+        UIView *whiteIndicatorView = [DDHGameViewFactory colorIndicatorViewWithColor:[UIColor whiteColor]];
+        _remainingWhiteSpheresLabel = [DDHGameViewFactory remainingSpheresLabel];
+        UIStackView *whiteStackView = [DDHGameViewFactory remainingInfoStackViewWithViews:@[whiteIndicatorView, _remainingWhiteSpheresLabel]];
+        whiteStackView.translatesAutoresizingMaskIntoConstraints = NO;
+        whiteStackView.hidden = YES;
+
+        UIView *redIndicatorView = [DDHGameViewFactory colorIndicatorViewWithColor:[UIColor redColor]];
+        _remainingRedSpheresLabel = [DDHGameViewFactory remainingSpheresLabel];
+        UIStackView *redStackView = [DDHGameViewFactory remainingInfoStackViewWithViews:@[redIndicatorView, _remainingRedSpheresLabel]];
+        redStackView.translatesAutoresizingMaskIntoConstraints = NO;
+        redStackView.hidden = YES;
+
         _preAnimationStartPosition = SCNVector3Make(0, startYAboveBoard+20, 0);
         _startPosition = SCNVector3Make(0, startYAboveBoard+0, 0);
 
         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         [self addGestureRecognizer:panRecognizer];
+
+        [self addSubview:redStackView];
+        [self addSubview:whiteStackView];
+
+        [NSLayoutConstraint activateConstraints:@[
+            [redStackView.leadingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.leadingAnchor constant:10.0],
+            [redStackView.bottomAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.bottomAnchor constant:-10.0],
+
+            [whiteStackView.trailingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.trailingAnchor constant:-10.0],
+            [whiteStackView.bottomAnchor constraintEqualToAnchor:redStackView.bottomAnchor],
+        ]];
     }
     return self;
 }
@@ -196,15 +222,18 @@
     for (int column = 0; column < numberOfColumns; column++) {
         for (int row = 0; row < numberOfColumns; row++) {
             SCNNode *poleNode = self.poleNodes[column][row];
-            [poleNode runAction:fadeAction];
+            [poleNode runAction:fadeAction completionHandler:^{
+                poleNode.castsShadow = opacity > 0.5;
+            }];
 
             NSArray<SCNNode *> *sphereNodesOnPole = self.sphereNodes[column][row];
             [sphereNodesOnPole enumerateObjectsUsingBlock:^(SCNNode * _Nonnull sphereNode, NSUInteger idx, BOOL * _Nonnull stop) {
 
                 DDHPosition *position = [[DDHPosition alloc] initWithColumn:column row:row andFloor:(int)idx];
                 if (NO == [mill containsSphereAtPosition:position]) {
-                    SCNAction *fadeAction = [SCNAction fadeOpacityTo:opacity duration:0.5];
-                    [sphereNode runAction:fadeAction];
+                    [sphereNode runAction:fadeAction completionHandler:^{
+                        sphereNode.castsShadow = opacity > 0.5;
+                    }];
                 }
             }];
         }

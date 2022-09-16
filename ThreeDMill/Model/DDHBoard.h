@@ -24,9 +24,12 @@ typedef NS_ENUM(NSInteger, DDHBoardMode) {
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DDHBoard : NSObject
-@property DDHPlayer *currentPlayer;
-@property DDHBoardMode mode;
-@property NSArray<DDHMove *> *lastMoves;
+@property (nonatomic, readonly) NSArray<NSArray<DDHPole *> *> *poles;
+@property (nonatomic, readonly) NSArray<DDHMill *> *knownMills;
+@property (nonatomic) DDHPlayer *currentPlayer;
+@property (nonatomic) DDHBoardMode mode;
+//@property (nonatomic) NSArray<DDHMove *> *lastMoves;
+- (void)updatePolesFromBoard:(DDHBoard *)otherBoard;
 - (BOOL)addSphere:(DDHSphere *)sphere column:(int)column row:(int)row;
 - (BOOL)canAddSphereAtColumn:(int)column row:(int)row;
 - (int)numberOfSpheresAtColumn:(int)column andRow:(int)row;

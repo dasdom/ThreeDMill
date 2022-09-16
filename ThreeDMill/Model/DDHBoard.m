@@ -12,8 +12,8 @@
 const int numberOfColumns = 4;
 
 @interface DDHBoard ()
-@property NSArray<NSArray<DDHPole *> *> *poles;
-@property NSArray<DDHMill *> *knownMills;
+@property (nonatomic, readwrite) NSArray<NSArray<DDHPole *> *> *poles;
+@property (nonatomic, readwrite) NSArray<DDHMill *> *knownMills;
 @end
 
 @implementation DDHBoard
@@ -35,6 +35,11 @@ const int numberOfColumns = 4;
         self.poles = poles;
     }
     return self;
+}
+
+- (void)updatePolesFromBoard:(DDHBoard *)otherBoard {
+    self.poles = [otherBoard.poles copy];
+    self.knownMills = [otherBoard.knownMills copy];
 }
 
 - (BOOL)addSphere:(DDHSphere *)sphere column:(int)column row:(int)row {
