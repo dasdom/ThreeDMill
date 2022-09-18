@@ -3,6 +3,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DDHSphereColor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -12,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DDHBoardChecker : NSObject
 + (DDHCheckResult *)checkForMatchOnPoles:(NSArray<NSArray<DDHPole *> *> *)poles knownMills:(NSArray<DDHMill *> *)knownMills;
++ (NSArray<NSNumber *> *)runCountsOnPoles:(NSArray<NSArray<DDHPole *> *> *)poles forPlayerWithColor:(DDHSphereColor)color;
 @end
 
 NS_ASSUME_NONNULL_END

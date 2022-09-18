@@ -34,216 +34,50 @@
 
 + (DDHCheckResult *)checkForMatchOnPoles:(NSArray<NSArray<DDHPole *> *> *)poles knownMills:(NSArray<DDHMill *> *)knownMills {
 
-    NSMutableArray<DDHMill *> *tempMills = [[NSMutableArray alloc] init];
-    NSMutableArray<DDHMill *> *discoveredMills = [[NSMutableArray alloc] init];
-
-    NSArray<DDHMill *> *millsInPoles = [self checkForPoleInPoles:poles];
-    [millsInPoles enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInColumns = [self checkForColumnInPoles:poles];
-    [millsInColumns enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInRows = [self checkForRowInPoles:poles];
-    [millsInRows enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInFloorDiagonal1 = [self checkForFloorDiagonal1InPoles:poles];
-    [millsInFloorDiagonal1 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInFloorDiagonal2 = [self checkForFloorDiagonal2InPoles:poles];
-    [millsInFloorDiagonal2 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInColumnDiagonal1 = [self checkForColumnDiagonal1InPoles:poles];
-    [millsInColumnDiagonal1 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInColumnDiagonal2 = [self checkForColumnDiagonal2InPoles:poles];
-    [millsInColumnDiagonal2 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInRowDiagonal1 = [self checkForRowDiagonal1InPoles:poles];
-    [millsInRowDiagonal1 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInRowDiagonal2 = [self checkForRowDiagonal2InPoles:poles];
-    [millsInRowDiagonal2 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInRoomDiagonal1 = [self checkForRoomDiagonal1InPoles:poles];
-    [millsInRoomDiagonal1 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInRoomDiagonal2 = [self checkForRoomDiagonal2InPoles:poles];
-    [millsInRoomDiagonal2 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInRoomDiagonal3 = [self checkForRoomDiagonal3InPoles:poles];
-    [millsInRoomDiagonal3 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
-
-    NSArray<DDHMill *> *millsInRoomDiagonal4 = [self checkForRoomDiagonal4InPoles:poles];
-    [millsInRoomDiagonal4 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredMills addObject:mill];
-        }
-        [tempMills addObject:mill];
-    }];
+    NSMutableArray<DDHMill *> *discoveredMills = [self partialMillsOnPoles:poles];
 
     [discoveredMills filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(DDHMill *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return evaluatedObject.positions.count == 4;
+        return evaluatedObject.positions.count == countToWin && NO == [knownMills containsObject:evaluatedObject];
     }]];
 
-    return [[DDHCheckResult alloc] initWithDiscoveredMill:discoveredMills.firstObject knownMills:tempMills];
+    knownMills = [knownMills arrayByAddingObjectsFromArray:discoveredMills];
+
+    return [[DDHCheckResult alloc] initWithDiscoveredMill:discoveredMills.firstObject knownMills:knownMills];
 }
 
-+ (NSArray<DDHMill *> *)partialMillsOnPoles:(NSArray<NSArray<DDHPole *> *> *)poles ignoringMills:(NSArray<DDHMill *> *)knownMills {
++ (NSMutableArray<DDHMill *> *)partialMillsOnPoles:(NSArray<NSArray<DDHPole *> *> *)poles {
 
     NSMutableArray<DDHMill *> *discoveredPartialMills = [[NSMutableArray alloc] init];
 
-    NSArray<DDHMill *> *millsInPoles = [self checkForPoleInPoles:poles];
-    [millsInPoles enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInColumns = [self checkForColumnInPoles:poles];
-    [millsInColumns enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInRows = [self checkForRowInPoles:poles];
-    [millsInRows enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInFloorDiagonal1 = [self checkForFloorDiagonal1InPoles:poles];
-    [millsInFloorDiagonal1 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInFloorDiagonal2 = [self checkForFloorDiagonal2InPoles:poles];
-    [millsInFloorDiagonal2 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInColumnDiagonal1 = [self checkForColumnDiagonal1InPoles:poles];
-    [millsInColumnDiagonal1 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInColumnDiagonal2 = [self checkForColumnDiagonal2InPoles:poles];
-    [millsInColumnDiagonal2 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInRowDiagonal1 = [self checkForRowDiagonal1InPoles:poles];
-    [millsInRowDiagonal1 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInRowDiagonal2 = [self checkForRowDiagonal2InPoles:poles];
-    [millsInRowDiagonal2 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInRoomDiagonal1 = [self checkForRoomDiagonal1InPoles:poles];
-    [millsInRoomDiagonal1 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInRoomDiagonal2 = [self checkForRoomDiagonal2InPoles:poles];
-    [millsInRoomDiagonal2 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInRoomDiagonal3 = [self checkForRoomDiagonal3InPoles:poles];
-    [millsInRoomDiagonal3 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
-
-    NSArray<DDHMill *> *millsInRoomDiagonal4 = [self checkForRoomDiagonal4InPoles:poles];
-    [millsInRoomDiagonal4 enumerateObjectsUsingBlock:^(DDHMill * _Nonnull mill, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (NO == [knownMills containsObject:mill]) {
-            [discoveredPartialMills addObject:mill];
-        }
-    }];
+    [discoveredPartialMills addObjectsFromArray:[self checkForPoleInPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForColumnInPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForRowInPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForFloorDiagonal1InPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForFloorDiagonal2InPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForColumnDiagonal1InPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForColumnDiagonal2InPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForRowDiagonal1InPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForRowDiagonal2InPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForRoomDiagonal1InPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForRoomDiagonal2InPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForRoomDiagonal3InPoles:poles]];
+    [discoveredPartialMills addObjectsFromArray:[self checkForRoomDiagonal4InPoles:poles]];
 
     return discoveredPartialMills;
+}
+
++ (NSArray<NSNumber *> *)runCountsOnPoles:(NSArray<NSArray<DDHPole *> *> *)poles forPlayerWithColor:(DDHSphereColor)color {
+
+    NSMutableArray<NSNumber *> *counts = [[NSMutableArray alloc] init];
+    NSArray<DDHMill *> *discoveredMills = [self partialMillsOnPoles:poles];
+
+    [discoveredMills enumerateObjectsUsingBlock:^(DDHMill * _Nonnull partialMill, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (partialMill.color == color) {
+            [counts addObject:@(partialMill.positions.count)];
+        }
+    }];
+
+    return [counts copy];
 }
 
 + (NSArray<DDHMill *> *)checkForPoleInPoles:(NSArray<NSArray<DDHPole *> *> *)poles {
@@ -292,13 +126,14 @@
                 DDHPosition *position = [[DDHPosition alloc] initWithColumn:column row:row andFloor:floor];
                 millColor = [self sphereColorOnPoles:poles atPosition:position whenSameAsColor:millColor];
                 if (millColor == DDHSphereColorNone) {
-                    if ([possibleMill.positions count] < 2) {
+                    if ([possibleMill.positions count] == 1) {
                         possibleMill = nil;
+                        break;
                     }
-                    break;
+                } else {
+                    [possibleMill addPosition:position];
+                    possibleMill.color = millColor;
                 }
-                [possibleMill addPosition:position];
-                possibleMill.color = millColor;
             }
 
             if (possibleMill != nil) {
@@ -324,13 +159,14 @@
                 DDHPosition *position = [[DDHPosition alloc] initWithColumn:column row:row andFloor:floor];
                 millColor = [self sphereColorOnPoles:poles atPosition:position whenSameAsColor:millColor];
                 if (millColor == DDHSphereColorNone) {
-                    if ([possibleMill.positions count] < 2) {
+                    if ([possibleMill.positions count] == 1) {
                         possibleMill = nil;
+                        break;
                     }
-                    break;
+                } else {
+                    [possibleMill addPosition:position];
+                    possibleMill.color = millColor;
                 }
-                [possibleMill addPosition:position];
-                possibleMill.color = millColor;
             }
 
             if (possibleMill != nil) {

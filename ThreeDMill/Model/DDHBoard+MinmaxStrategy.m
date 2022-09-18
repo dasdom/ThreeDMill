@@ -3,6 +3,7 @@
 //
 
 #import "DDHBoard+MinmaxStrategy.h"
+#import "DDHBoardChecker.h"
 
 @interface DDHBoard ()
 @property (nonatomic, readwrite, nullable) NSArray<DDHPlayer *> *players;
@@ -49,8 +50,15 @@
     self.currentPlayer = gameModel.currentPlayer;
 }
 
-//- (BOOL)isWinForPlayer:(DDHPlayer *)player {
-//
-//}
+- (BOOL)isWinForPlayer:(DDHPlayer *)player {
+    NSArray<NSNumber *> *runCounts = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:player.color];
+
+    NSNumber *longestRun = [runCounts valueForKeyPath:@"@max.self"];
+    return longestRun.intValue >= countToWin;
+}
+
+- (BOOL)isLossForPlayer:(DDHPlayer *)player {
+    return [self isWinForPlayer:player.opponent];
+}
 
 @end

@@ -9,8 +9,6 @@
 #import "DDHBoardChecker.h"
 #import "DDHCheckResult.h"
 
-const int numberOfColumns = 4;
-
 @interface DDHBoard ()
 @property (nonatomic, readwrite) NSArray<NSArray<DDHPole *> *> *poles;
 @property (nonatomic, readwrite) NSArray<DDHMill *> *knownMills;

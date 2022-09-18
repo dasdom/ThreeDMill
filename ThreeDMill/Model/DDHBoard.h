@@ -6,7 +6,8 @@
 #import "DDHMove.h"
 #import "DDHPlayer.h"
 
-extern const int numberOfColumns;
+const static int numberOfColumns = 4;
+const static int countToWin = 4;
 
 typedef NS_ENUM(NSInteger, DDHBoardMode) {
     DDHBoardModeAddSpheres,

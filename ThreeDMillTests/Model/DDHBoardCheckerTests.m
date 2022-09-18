@@ -324,6 +324,110 @@
     XCTAssertEqualObjects(checkResult.discoveredMill.description, @"330.221.112.003,red");
 }
 
+- (void)test_runCountsOnPoles_whenDifferentColor_twoOnAPole {
+    [self.poles[0][0] addSphere:[self redSphere]];
+    [self.poles[0][0] addSphere:[self redSphere]];
+
+    NSArray<NSNumber *> *result = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:DDHSphereColorWhite];
+
+    XCTAssertEqualObjects(result, @[]);
+}
+
+- (void)test_runCountsOnPoles_twoOnAPole_1 {
+    [self.poles[0][0] addSphere:[self redSphere]];
+    [self.poles[0][0] addSphere:[self redSphere]];
+
+    NSArray<NSNumber *> *result = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:DDHSphereColorRed];
+
+    XCTAssertEqualObjects(result, @[@2]);
+}
+
+- (void)test_runCountsOnPoles_twoInColumn {
+    [self.poles[0][0] addSphere:[self redSphere]];
+    [self.poles[0][1] addSphere:[self redSphere]];
+
+    [self.poles[1][0] addSphere:[self whiteSphere]];
+    [self.poles[1][1] addSphere:[self whiteSphere]];
+
+    [self.poles[2][0] addSphere:[self redSphere]];
+    [self.poles[2][1] addSphere:[self redSphere]];
+    [self.poles[2][2] addSphere:[self redSphere]];
+
+    NSArray<NSNumber *> *result = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:DDHSphereColorWhite];
+
+    NSArray<NSNumber *> *expected = @[@2];
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void)test_runCountsOnPoles_twoAndThreeInColumn {
+    [self.poles[0][0] addSphere:[self redSphere]];
+    [self.poles[0][1] addSphere:[self redSphere]];
+
+    [self.poles[1][0] addSphere:[self whiteSphere]];
+    [self.poles[1][1] addSphere:[self whiteSphere]];
+
+    [self.poles[2][0] addSphere:[self redSphere]];
+    [self.poles[2][1] addSphere:[self redSphere]];
+    [self.poles[2][2] addSphere:[self redSphere]];
+
+    NSArray<NSNumber *> *result = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:DDHSphereColorRed];
+
+    NSArray<NSNumber *> *expected = @[@2, @3];
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void)test_runCountsOnPoles_fourInColumn {
+    [self.poles[2][0] addSphere:[self redSphere]];
+    [self.poles[2][1] addSphere:[self redSphere]];
+    [self.poles[2][2] addSphere:[self redSphere]];
+    [self.poles[2][3] addSphere:[self redSphere]];
+
+    NSArray<NSNumber *> *result = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:DDHSphereColorRed];
+
+    NSArray<NSNumber *> *expected = @[@4];
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void)test_runCountsOnPoles_twoInMiddleColumn {
+    [self.poles[2][1] addSphere:[self redSphere]];
+    [self.poles[2][2] addSphere:[self redSphere]];
+
+    NSArray<NSNumber *> *result = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:DDHSphereColorRed];
+
+    NSArray<NSNumber *> *expected = @[@2];
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void)test_runCountsOnPoles_twoAtEndOfColumn {
+    [self.poles[2][2] addSphere:[self redSphere]];
+    [self.poles[2][3] addSphere:[self redSphere]];
+
+    NSArray<NSNumber *> *result = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:DDHSphereColorRed];
+
+    NSArray<NSNumber *> *expected = @[@2];
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void)test_runCountsOnPoles_twoInMiddleRow {
+    [self.poles[1][1] addSphere:[self redSphere]];
+    [self.poles[2][1] addSphere:[self redSphere]];
+
+    NSArray<NSNumber *> *result = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:DDHSphereColorRed];
+
+    NSArray<NSNumber *> *expected = @[@2];
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void)test_runCountsOnPoles_twoAtEndOfRow {
+    [self.poles[2][2] addSphere:[self redSphere]];
+    [self.poles[3][2] addSphere:[self redSphere]];
+
+    NSArray<NSNumber *> *result = [DDHBoardChecker runCountsOnPoles:self.poles forPlayerWithColor:DDHSphereColorRed];
+
+    NSArray<NSNumber *> *expected = @[@2];
+    XCTAssertEqualObjects(result, expected);
+}
+
 // MARK: - Helper
 - (DDHSphere *)redSphere {
     return [[DDHSphere alloc] initWithColorType:DDHSphereColorRed];
